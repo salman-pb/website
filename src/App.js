@@ -1,28 +1,22 @@
 import React from 'react';
 import './App.css';
-import { Button, Segment, Header, Input, Form, Grid, GridColumn } from 'semantic-ui-react'
+import Register from './Register'
+import Home from './Home'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 
 function App() {
   return (
-    <Grid centered verticalAlign="middle" style={{height: '100vh'}}>
-      <GridColumn centered width='3'>
-        <Segment compact>
-          <Header as='h2'>Login yuk</Header>
-            <Form>
-              <Form.Field style={{width: 200}}>
-                <label>Username</label>
-                <Input placeholder='Username' />
-              </Form.Field>
-              <Form.Field style={{width: 200}}>
-                <label>Password</label>
-                <Input placeholder='Password' type="password" />
-              </Form.Field>
-              <Button style={{width: 200}} color="google plus" type='submit'>Login</Button>
-            </Form>
-        </Segment>
-      </GridColumn>
-    </Grid>
+    <Router>
+      <Switch>
+        <Route exact path='/'>
+          <Home/>
+        </Route>
+        <Route exact path='/register'>
+          <Register/>
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
